@@ -13,7 +13,7 @@ module Promotion
         placement_count = placement_count + LinkedImagePromo.count(:all, :conditions => {:placement => record.placement})
         placement_count = placement_count + VideoPromo.count(:all, :conditions => {:placement => record.placement})
 
-        if placement_count >= total[:max]
+        if placement_count > total[:max]
           record.errors.add :limit_exceeded, ": The maximum number of entries for this placement has already been reached"
         end
       end
