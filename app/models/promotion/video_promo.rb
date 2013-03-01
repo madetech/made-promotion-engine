@@ -10,5 +10,7 @@ module Promotion
                             :placement
 
     validates_with          LimitValidator
+
+    default_scope           :order => '`order` ASC'
   end
 end
