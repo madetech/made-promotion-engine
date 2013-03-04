@@ -1,5 +1,7 @@
 module Promotion
   class ImageOnlyPromo < ActiveRecord::Base
+    include Promotion::PromotionConcerns
+
     attr_accessible           :title,
                               :image,
                               :placement,
@@ -15,9 +17,5 @@ module Promotion
     validates_presence_of     :placement,
                               :title,
                               :image
-
-    validates_with            LimitValidator
-
-    default_scope             :order => '`order` ASC'
   end
 end

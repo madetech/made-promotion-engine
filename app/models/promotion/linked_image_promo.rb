@@ -1,5 +1,7 @@
 module Promotion
   class LinkedImagePromo < ActiveRecord::Base
+    include Promotion::PromotionConcerns
+
     attr_accessible           :title,
                               :image,
                               :image_link,
@@ -16,9 +18,5 @@ module Promotion
                               :image,
                               :image_link,
                               :placement
-
-    validates_with            LimitValidator
-
-    default_scope             :order => '`order` ASC'
   end
 end

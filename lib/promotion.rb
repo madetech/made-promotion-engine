@@ -1,5 +1,6 @@
 require "promotion/engine"
 require Promotion::Engine.root.join('app', 'validators', 'promotion')
+require Promotion::Engine.root.join('app', 'concerns', 'promotion')
 
 module Promotion
   class Engine < Rails::Engine

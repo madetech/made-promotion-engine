@@ -1,5 +1,7 @@
 module Promotion
   class ImageTextPromo < ActiveRecord::Base
+    include Promotion::PromotionConcerns
+
     attr_accessible                 :title,
                                     :headline,
                                     :image,
@@ -21,9 +23,5 @@ module Promotion
                                     :headline,
                                     :image,
                                     :placement
-
-    validates_with                  LimitValidator
-
-    default_scope                   :order => '`order` ASC'
   end
 end

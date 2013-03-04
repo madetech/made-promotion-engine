@@ -1,5 +1,7 @@
 module Promotion
   class VideoPromo < ActiveRecord::Base
+    include Promotion::PromotionConcerns
+
     attr_accessible         :title,
                             :video_embed,
                             :placement,
@@ -8,9 +10,5 @@ module Promotion
     validates_presence_of   :title,
                             :video_embed,
                             :placement
-
-    validates_with          LimitValidator
-
-    default_scope           :order => '`order` ASC'
   end
 end
