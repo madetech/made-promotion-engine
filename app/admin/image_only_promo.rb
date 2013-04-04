@@ -7,12 +7,6 @@ if defined?(ActiveAdmin)
     filter :title
     filter :placement
 
-    # actions :all
-
-    # action_item :only => :index do
-    #   link_to "New Image Only Promo", new_admin_promotion_image_only_promo_path
-    # end
-
     menu :parent => "Promotions", :label => "Image Only", :priority => 1
     form do |f|
       f.inputs "Promos" do
@@ -49,5 +43,4 @@ if defined?(ActiveAdmin)
       end
     end
   end
-
 end

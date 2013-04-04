@@ -8,12 +8,6 @@ if defined?(ActiveAdmin)
     filter :headline
     filter :placement
 
-    # actions :all, :except => [:new]
-
-    # action_item do
-    #   link_to "New Image & Text Promo", new_admin_promotion_image_text_promo_path
-    # end
-
     menu :parent => "Promotions", :label => "Image & Text", :priority => 1
     form do |f|
       f.inputs "Promos" do

@@ -8,12 +8,6 @@ if defined?(ActiveAdmin)
     filter :video_embed
     filter :placement
 
-    # actions :all, :except => [:new]
-
-    # action_item do
-    #   link_to "New Video Promo", new_admin_promotion_video_promo_path
-    # end
-
     menu :parent => "Promotions", :label => "Video", :priority => 1
     form do |f|
       f.inputs "Promos" do
