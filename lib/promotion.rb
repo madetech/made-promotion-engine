@@ -18,6 +18,9 @@ module Promotion
   mattr_accessor :available_pages
   @@available_pages = []
 
+  mattr_accessor :styles
+  @@styles = []
+
   mattr_accessor :main_promo_image_size
   @@main_promo_image_size = ["274x394>", :jpg]
 

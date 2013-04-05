@@ -7,6 +7,7 @@ module Promotion
                                     :image,
                                     :image_text_promo_links_attributes,
                                     :placement,
+                                    :style,
                                     :order
 
     has_many                        :image_text_promo_links

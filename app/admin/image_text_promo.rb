@@ -21,7 +21,12 @@ if defined?(ActiveAdmin)
             f_link.input :text_field_link, :input_html => {:placeholder => "http://www.example.com"}
           end
         end
-        f.input :placement,  :as => :select,  :collection => Promotion.config.available_pages.map{|p| p[:label]}, :prompt => "Select one:"
+        f.input :placement, :as => :select, :collection => Promotion.config.available_pages.map{|p| p[:label]}, :prompt => "Select one:"
+
+        if Promotion.config.styles.length > 0
+          f.input :style, :as => :select, :collection => Promotion.config.styles, :prompt => "Select a style:"
+        end
+
         f.input :order, :as => :number, :input_html => { :min => 1, :max => 4 }
       end
 
