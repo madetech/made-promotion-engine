@@ -1,26 +1,17 @@
 if defined?(ActiveAdmin)
-  ActiveAdmin.register Promotion::ImageTextPromo do
+  ActiveAdmin.register Promotion::ImagePromo do
     controller do
       cache_sweeper Promotion.config.cache_sweeper if Promotion.config.cache_sweeper
     end
 
     filter :title
-    filter :headline
     filter :placement
 
-    menu :parent => "Promotions", :label => "Image & Text", :priority => 1
+    menu :parent => "Promotions", :label => "Image", :priority => 1
     form do |f|
       f.inputs "Promos" do
         f.input :title
-        f.input :headline
         f.input :image, :hint => f.template.image_tag(f.object.image.url(:thumb))
-
-        f.has_many :image_text_promo_links do |f_link|
-          f_link.inputs do
-            f_link.input :text_field
-            f_link.input :text_field_link, :input_html => {:placeholder => "http://www.example.com"}
-          end
-        end
 
         f.input :placement, :as => :select,
                             :collection => Promotion.config.placements.map{|k, v| [v[:label], k]},
@@ -38,9 +29,8 @@ if defined?(ActiveAdmin)
       f.actions
     end
 
-    index do
+    index :title => "Image Only Promos" do
       column :title
-      column :headline
       column :image do |promo|
         unless promo.image.blank?
           image_tag promo.image(:thumb)

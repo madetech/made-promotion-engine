@@ -1,21 +1,29 @@
 if defined?(ActiveAdmin)
   ActiveAdmin.register Promotion::VideoPromo do
     controller do
-      cache_sweeper Promotion.config.cache_video_sweeper if Promotion.config.cache_video_sweeper
+      cache_sweeper Promotion.config.cache_sweeper if Promotion.config.cache_sweeper
     end
 
     filter :title
-    filter :video_embed
     filter :placement
 
     menu :parent => "Promotions", :label => "Video", :priority => 1
     form do |f|
       f.inputs "Promos" do
-        f.semantic_errors *f.object.errors.keys
         f.input :title
-        f.input :video_embed, :as => :text, :input_html => {:placeholder => "http://www.example.com", :rows => 5}
-        f.input :placement,  :as => :select,  :collection => Promotion.config.available_pages.map{|p| p[:label]}, :prompt => "Select one:"
-        f.input :order, :as => :number, :input_html => { :min => 1, :max => 4 }
+        f.input :html, :as => :text, :input_html => {:rows => 5}
+
+        f.input :placement, :as => :select,
+                            :collection => Promotion.config.placements.map{|k, v| [v[:label], k]},
+                            :prompt => "Select a placement"
+
+        if Promotion.config.styles.length > 0
+          f.input :style,   :as => :select,
+                            :collection => Promotion.config.styles.map{|k, v| [v, k]},
+                            :prompt => "Select a style"
+        end
+
+        f.input :order, :as => :number
       end
 
       f.actions
@@ -23,19 +31,10 @@ if defined?(ActiveAdmin)
 
     index do
       column :title
-      column :video_embed
       column :placement
       column :order
-      default_actions
-    end
 
-    show do |promo|
-      attributes_table do
-        row :title
-        row :video_embed
-        row :placement
-        row :order
-      end
+      default_actions
     end
   end
 end

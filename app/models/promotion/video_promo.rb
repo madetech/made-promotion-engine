@@ -1,14 +1,7 @@
 module Promotion
-  class VideoPromo < ActiveRecord::Base
-    include Promotion::PromotionConcerns
+  class VideoPromo < Promotion::Promo
+    attr_accessible         :html
 
-    attr_accessible         :title,
-                            :video_embed,
-                            :placement,
-                            :order
-
-    validates_presence_of   :title,
-                            :video_embed,
-                            :placement
+    validates_presence_of   :html
   end
 end
