@@ -1,0 +1,42 @@
+en:
+  activerecord:
+    models:
+      promotion/image_text_promo:
+        one: Image Text Promotion
+        other: Image Text Promotions
+      promotion/localisable/image_text_promo:
+        one: Image Text Promotion
+        other: Image Text Promotions
+      promotion/image_text_promo_link:
+        one: Link
+        other: Links
+      promotion/localisable/image_text_promo_link:
+        one: Link
+        other: Links
+      promotion/video_promo:
+        one: "Video Promotion"
+        other: "Video Promotions"
+      promotion/localisable/video_promo:
+        one: "Video Promotion"
+        other: "Video Promotions"
+      promotion/image_link_promo:
+        one: "Image Link Promotion"
+        other: "Image Link Promotions"
+      promotion/localisable/image_link_promo:
+        one: "Image Link Promotion"
+        other: "Image Link Promotions"
+      promotion/text_link_promo:
+        one: "Text Link Promotion"
+        other: "Text Link Promotions"
+      promotion/localisable/text_link_promo:
+        one: "Text Link Promotion"
+        other: "Text Link Promotions"
+      promotion/image_multiple_text_promo:
+        one: "Image Multiple Text Promotion"
+        other: "Image Multiple Text Promotions"
+      promotion/localisable/image_multiple_text_promo:
+        one: "Image Multiple Text Promotion"
+        other: "Image Multiple Text Promotions"
+      promotion/localisable/image_multiple_text_promo_block:
+        one: "Text Block"
+        other: "Text Block"

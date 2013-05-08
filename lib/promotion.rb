@@ -14,10 +14,14 @@ module Promotion
   mattr_accessor :image_styles
   @@image_styles = {}
 
+  mattr_accessor :localisable
+  @@localisable = false
+
   class Engine < Rails::Engine
     isolate_namespace Promotion
 
     initializer :promotion do
+      require "active_admin_extension"
       ActiveAdmin.application.load_paths.unshift Dir[Promotion::Engine.root.join('app', 'admin')] if defined?(ActiveAdmin)
     end
 
@@ -31,5 +35,15 @@ module Promotion
   def self.config(&block)
     yield self if block
     return self
+  end
+
+  def self.localisable_class(class_name)
+    if Promotion.config.localisable
+      namespaced_class = "Promotion::Localisable::#{class_name}"
+    else
+      namespaced_class = "Promotion::#{class_name}"
+    end
+
+    namespaced_class.constantize
   end
 end
