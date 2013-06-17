@@ -1,5 +1,5 @@
 if defined?(ActiveAdmin)
-  ActiveAdmin.register Promotion.localisable_class("TextLinkPromo") do
+  ActiveAdmin.register Promotion.localisable_class(:TextLinkPromo) do
     controller do
       cache_sweeper Promotion.config.cache_sweeper if Promotion.config.cache_sweeper
     end
@@ -8,7 +8,8 @@ if defined?(ActiveAdmin)
     filter :link
     filter :placement
 
-    menu :parent => "Promotions", :label => "Text Link", :priority => 1
+    menu :parent => "Promotions", :label => "Text Link"
+
     form do |f|
       f.inputs do
         f.localise_inputs [

@@ -1,5 +1,5 @@
 if defined?(ActiveAdmin)
-  ActiveAdmin.register  Promotion.localisable_class("VideoPromo") do
+  ActiveAdmin.register  Promotion.localisable_class(:VideoPromo) do
     controller do
       cache_sweeper Promotion.config.cache_sweeper if Promotion.config.cache_sweeper
     end
@@ -7,7 +7,8 @@ if defined?(ActiveAdmin)
     filter :title
     filter :placement
 
-    menu :parent => "Promotions", :label => "Video", :priority => 1
+    menu :parent => "Promotions", :label => "Video"
+
     form do |f|
       f.inputs do
         f.localise_inputs [

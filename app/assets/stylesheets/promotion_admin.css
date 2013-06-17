@@ -1,0 +1,15 @@
+.hotspot-image {
+  cursor: pointer;
+  position: relative;
+}
+
+.hotspot-icon {
+  background-color: #fff;
+  border: 2px solid #000 !important;
+  box-shadox: inset 0 0 3px rgba(0,0,0,0.6), 0 0 3px rgba(0,0,0,0.6);
+  border-radius: 17px;
+  display: inline-block;
+  height: 15px;
+  position: absolute;
+  width: 15px;
+}

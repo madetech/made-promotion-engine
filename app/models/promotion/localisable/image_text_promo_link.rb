@@ -7,9 +7,6 @@ module Promotion
       attr_accessible             :translations
 
       belongs_to                  :image_text_promo_localisable
-
-      #validates_presence_of      :text_field, :if => :text_field_link?
-      #validates_presence_of      :text_field_link, :if => :text_field?
     end
   end
 end

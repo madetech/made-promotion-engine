@@ -1,5 +1,5 @@
 if defined?(ActiveAdmin)
-  ActiveAdmin.register Promotion.localisable_class("ImageTextPromo") do
+  ActiveAdmin.register Promotion.localisable_class(:ImageTextPromo) do
     controller do
       cache_sweeper Promotion.config.cache_sweeper if Promotion.config.cache_sweeper
     end
@@ -8,7 +8,7 @@ if defined?(ActiveAdmin)
     filter :headline
     filter :placement
 
-    menu :parent => "Promotions", :label => "Image & Text", :priority => 1
+    menu :parent => "Promotions", :label => "Image & Text"
 
     form do |f|
       f.inputs do

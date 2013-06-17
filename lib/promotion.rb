@@ -23,6 +23,8 @@ module Promotion
     initializer :promotion do
       require "active_admin_extension"
       ActiveAdmin.application.load_paths.unshift Dir[Promotion::Engine.root.join('app', 'admin')] if defined?(ActiveAdmin)
+      ActiveAdmin.application.register_stylesheet "promotion_admin.css", :media => :screen
+      ActiveAdmin.application.register_javascript "promotion_admin.js"
     end
 
     config.to_prepare do

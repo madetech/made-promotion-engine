@@ -40,3 +40,21 @@ en:
       promotion/localisable/image_multiple_text_promo_block:
         one: "Text Block"
         other: "Text Block"
+      promotion/carousel_promo:
+        one: "Carousel Promotion"
+        other: "Carousel Promotions"
+      promotion/localisable/carousel_promo:
+        one: "Carousel Promotion"
+        other: "Carousel Promotions"
+      promotion/carousel_promo_image:
+        one: "Image"
+        other: "Images"
+      promotion/localisable/carousel_promo_image:
+        one: "Image"
+        other: "Images"
+      promotion/carousel_promo_image_hotspot:
+        one: "Hotspot"
+        other: "Hotspots"
+      promotion/localisable/carousel_promo_image_hotspot:
+        one: "Hotspot"
+        other: "Hotspots"

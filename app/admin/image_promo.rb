@@ -7,7 +7,8 @@ if defined?(ActiveAdmin)
     filter :title
     filter :placement
 
-    menu :parent => "Promotions", :label => "Image", :priority => 1
+    menu :parent => "Promotions", :label => "Image"
+
     form do |f|
       f.inputs "Promos" do
         f.input :title

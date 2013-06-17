@@ -43,31 +43,57 @@ module ActiveAdmin
     private
     def fetch_localise_has_many_localisable(form, model, inputs)
       form.has_many model do |f_many|
-        f_many.translated_inputs do |t|
-          inputs.each do |input|
-            t.input get_field(input), get_args(input)
-          end
+        non_localisable_inputs = get_non_localisable_inputs(inputs)
+        localisable_inputs = get_localisable_inputs(inputs)
 
-          render_hidden_field(t)
+        f_many.inputs do
+          render_many_inputs(non_localisable_inputs, f_many)
         end
+
+        f_many.translated_inputs do |container|
+          render_many_inputs(localisable_inputs, container)
+        end
+
+        f_many.input :_destroy, :as => :boolean, :label => "Delete"
       end
     end
 
     def fetch_localise_has_many_regular(form, model, inputs)
       form.has_many model do |f_many|
         f_many.inputs do
-          inputs.each do |input|
-            f_many.input get_field(input), get_args(input)
-          end
-
-          render_hidden_field(f_many)
+          render_many_inputs(inputs, f_many)
         end
       end
+    end
+
+    def render_many_inputs(inputs, container)
+      inputs.each do |input|
+        container.input get_field(input), get_args(input)
+      end
+
+      render_hidden_field(container)
     end
 
     def render_hidden_field(container)
       # Needed to force the block to yield an input
       container.input :id, as: :hidden
+    end
+
+    def get_non_localisable_inputs(inputs)
+      non_localisable_inputs = inputs.dup
+      non_localisable_inputs.reject!{ |item| localisable?(item) }
+      non_localisable_inputs
+    end
+
+    def get_localisable_inputs(inputs)
+      localisable_inputs = inputs.dup
+      localisable_inputs.reject!{ |item| !localisable?(item) }
+      localisable_inputs
+    end
+
+    def localisable?(input)
+      args = get_args(input)
+      !args.has_key?(:localisable) and args[:localisable] != false
     end
 
     def get_field(params)

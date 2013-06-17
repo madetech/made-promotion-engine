@@ -1,5 +1,5 @@
 if defined?(ActiveAdmin)
-  ActiveAdmin.register Promotion.localisable_class("ImageMultipleTextPromo") do
+  ActiveAdmin.register Promotion.localisable_class(:ImageMultipleTextPromo) do
     controller do
       cache_sweeper Promotion.config.cache_sweeper if Promotion.config.cache_sweeper
     end
@@ -8,7 +8,7 @@ if defined?(ActiveAdmin)
     filter :headline
     filter :placement
 
-    menu :parent => "Promotions", :label => "Image & Multiple Text", :priority => 1
+    menu :parent => "Promotions", :label => "Image & Multiple Text"
 
     form do |f|
       f.inputs do
@@ -24,7 +24,7 @@ if defined?(ActiveAdmin)
 
         f.localise_has_many(:image_multiple_text_promo_blocks, [
           [:text],
-          [:order]
+          [:order, {:as => :number}]
         ])
       end
 
