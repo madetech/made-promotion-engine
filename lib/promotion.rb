@@ -27,6 +27,10 @@ module Promotion
       ActiveAdmin.application.register_javascript "promotion_admin.js"
     end
 
+    initializer :assets do |config|
+      Rails.application.config.assets.precompile += %w( promotion_admin.css promotion_admin.js )
+    end
+
     config.to_prepare do
       ApplicationController.helper(ViewHelper)
     end
