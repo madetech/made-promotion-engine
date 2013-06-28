@@ -1,5 +1,7 @@
 require "promotion/engine"
 require Promotion::Engine.root.join('app', 'validators', 'promotion')
+require "globalize3"
+require "activeadmin-globalize3"
 
 module Promotion
   mattr_accessor :cache_sweeper
