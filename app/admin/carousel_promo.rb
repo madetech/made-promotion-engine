@@ -1,6 +1,6 @@
 require Promotion::Engine.root.join('app', 'inputs', 'hotspot_input')
 
-if defined?(ActiveAdmin)
+if defined?(ActiveAdmin) and !Promotion.config.local_admin_pages.include?(:carousel_promo)
   ActiveAdmin.register Promotion.localisable_class(:CarouselPromo) do
     controller do
       cache_sweeper Promotion.config.cache_sweeper if Promotion.config.cache_sweeper

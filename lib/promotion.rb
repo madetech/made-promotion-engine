@@ -19,6 +19,9 @@ module Promotion
   mattr_accessor :localisable
   @@localisable = false
 
+  mattr_accessor :local_admin_pages
+  @@local_admin_pages = []
+
   class Engine < Rails::Engine
     isolate_namespace Promotion
 
