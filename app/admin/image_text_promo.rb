@@ -1,4 +1,4 @@
-if defined?(ActiveAdmin)
+if defined?(ActiveAdmin) and Promotion.config.engine_active_admin
   ActiveAdmin.register Promotion.localisable_class(:ImageTextPromo) do
     controller do
       cache_sweeper Promotion.config.cache_sweeper if Promotion.config.cache_sweeper

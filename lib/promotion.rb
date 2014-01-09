@@ -7,6 +7,9 @@ module Promotion
   mattr_accessor :cache_sweeper
   @@cache_sweeper = false
 
+  mattr_accessor :engine_active_admin
+  @@engine_active_admin = true
+
   mattr_accessor :placements
   @@placements = []
 
