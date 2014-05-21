@@ -17,7 +17,7 @@ if defined?(ActiveAdmin)
 
         f.has_many :image_text_promo_links do |f_link|
           f_link.inputs do
-            f_link.input :text_field
+            f_link.input :text_field, :as => :text, :input_html => { :rows => 2 }
             f_link.input :text_field_link, :input_html => {:placeholder => "http://www.example.com"}
           end
         end
