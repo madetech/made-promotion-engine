@@ -1,5 +1,5 @@
 module Promotion
-  class ImageMultipleTextPromo < Promotion::Localisable::Promo
+  class ImageMultipleTextPromo < Promotion::Promo
     attr_accessible                 :headline,
                                     :link,
                                     :image,

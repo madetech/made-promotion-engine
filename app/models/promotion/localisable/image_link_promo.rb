@@ -1,14 +1,16 @@
-module Promotion
-  module Localisable
-    class ImageLinkPromo < Promotion::Localisable::Promo
-      translates                      :link
-      active_admin_translates         :link
+if Promotion.config.localisable
+  module Promotion
+    module Localisable
+      class ImageLinkPromo < Promotion::Localisable::Promo
+        translates                      :link
+        active_admin_translates         :link
 
-      attr_accessible                 :image
+        attr_accessible                 :image
 
-      has_attached_file               :image, :styles => Promotion.config.image_styles
+        has_attached_file               :image, :styles => Promotion.config.image_styles
 
-      validates_presence_of           :image
+        validates_presence_of           :image
+      end
     end
   end
 end

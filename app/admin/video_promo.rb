@@ -1,5 +1,5 @@
 if defined?(ActiveAdmin) and Promotion.config.engine_active_admin
-  ActiveAdmin.register  Promotion.localisable_class(:VideoPromo) do
+  ActiveAdmin.register Promotion.localisable_class(:VideoPromo) do
     controller do
       cache_sweeper Promotion.config.cache_sweeper if Promotion.config.cache_sweeper
     end

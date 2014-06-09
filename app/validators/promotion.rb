@@ -11,7 +11,7 @@ module Promotion
 
       private
       def get_conditions(record, placement)
-        conditions = {:placement => placement}
+        conditions = { :placement => placement }
 
         conditions[:market] = record.market if Promotion.config.localisable
 
