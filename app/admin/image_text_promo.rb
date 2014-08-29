@@ -12,7 +12,7 @@ if defined?(ActiveAdmin)
     form do |f|
       f.inputs "Promos" do
         f.input :title
-        f.input :headline
+        f.input :headline, :as => :rich
         f.input :image, :hint => f.template.image_tag(f.object.image.url(:thumb))
 
         f.has_many :image_text_promo_links do |f_link|
